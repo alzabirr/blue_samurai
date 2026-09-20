@@ -36,6 +36,8 @@ const ArrowBlack2 = () => (
 
 
 const PROJECT_SECTIONS = [
+  "Meet our products",
+  "Snappy",
   "Medi reminder",
   "Krabby",
   "Nappy",
@@ -116,8 +118,8 @@ export const Component = () => {
           sections={PROJECT_SECTIONS}
           className="bg-[#0038FF] text-white"
           textClassName="text-white"
-          columnClassName="w-full max-w-5xl text-center text-[clamp(3.5rem,14vw,7.5rem)] font-black uppercase tracking-tighter leading-[0.92]"
-          runway="70vh"
+          columnClassName="w-auto max-w-[95vw] text-center text-[clamp(2.2rem,7.5vw,5.5rem)] font-black uppercase tracking-tighter leading-none whitespace-nowrap"
+          runway="65vh"
           hint={null}
         />
       </section>
