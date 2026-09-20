@@ -81,30 +81,30 @@ export const Component = () => {
         {/* Navbar */}
         <nav className="flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
           {/* Navigation Links */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center gap-5 md:gap-6">
             {/* Home Icon Link */}
             <a
               href="#home"
-              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+              className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
               title="Home"
             >
               <img
                 src="/samuraiicon.png"
                 alt="Home"
-                className="w-8 h-8 md:w-9 md:h-9 object-contain select-none"
+                className="w-full h-full object-contain select-none"
               />
             </a>
 
             {/* Projects Icon Link */}
             <a
               href="#project"
-              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+              className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
               title="Projects"
             >
               <img
                 src="/projects.png"
                 alt="Projects"
-                className="w-8 h-8 md:w-9 md:h-9 object-contain select-none"
+                className="w-full h-full object-contain select-none"
               />
             </a>
 
