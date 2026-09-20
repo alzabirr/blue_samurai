@@ -82,7 +82,18 @@ export const Component = () => {
         <nav className="flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
           {/* Navigation Links */}
           <div className="flex items-center space-x-2">
-            {["Home", "Project", "Contact"].map((item) => (
+            <a
+              href="#home"
+              className="flex items-center justify-center w-8 h-8 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95 p-0.5 overflow-hidden"
+              title="Home"
+            >
+              <img
+                src="/samuraiicon.png"
+                alt="Home"
+                className="w-full h-full object-contain rounded-full"
+              />
+            </a>
+            {["Project", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -109,7 +120,7 @@ export const Component = () => {
                 <img
                   src="/samurai.png"
                   alt="Samurai Helmet"
-                  className="block md:hidden absolute -top-[60%] -left-[20%] w-[115%] h-[115%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
+                  className="block md:hidden absolute -top-[56%] -left-[38%] w-[115%] h-[115%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
                 />
                 B
               </span>
