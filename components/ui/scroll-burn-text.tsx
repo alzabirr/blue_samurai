@@ -49,20 +49,20 @@ const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='gamma' exponent='4'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E\")";
 
 /** Progress through a block's own slot at which it starts to burn. */
-const BURN_AT = 0.62;
+const BURN_AT = 0.35;
 /** How much of the slot the burn takes to eat the block whole. */
-const BURN_SPAN = 0.38;
+const BURN_SPAN = 0.65;
 /** Slots of approach before the first block reaches the front. */
-const LEAD = 0.7;
+const LEAD = 0.25;
 /** Alpha of a block still standing behind the one up front. */
-const DIM = 0.3;
+const DIM = 0.4;
 /**
  * How far into its own fade the first block already is on the opening frame.
  * Without it the runway opens on an empty frame: the first block sits exactly
  * at the start of its ramp, which is zero, and there is nothing to scroll
  * toward. A shape this faint at the far end of the room is the whole cue.
  */
-const OPEN = 0.22;
+const OPEN = 0.5;
 /** Distance a block is born at, in units of the distance it is read at. */
 const FAR = 4;
 /** Distance it has closed to by the time it is gone — a quarter of reading distance is four times the size. */

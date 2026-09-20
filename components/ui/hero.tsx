@@ -145,7 +145,7 @@ export const Component = () => {
           columnClassName="w-auto max-w-[98vw] text-center font-black uppercase tracking-tighter leading-[0.88] whitespace-nowrap"
           far={1.6}
           near={0.85}
-          runway="65vh"
+          runway="35vh"
           hint={null}
         />
       </section>
