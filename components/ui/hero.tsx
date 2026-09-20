@@ -57,16 +57,33 @@ export const Component = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 min-h-[85svh] md:min-h-0 relative z-10 pt-16 pb-32 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
+      <main className="flex-1 min-h-[100svh] md:min-h-0 relative z-10 pt-0 pb-0 md:pt-12 md:pb-48 px-0 md:px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto overflow-hidden">
         {/* Massive Typography & Elements Container */}
-        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 my-auto">
-          {/* Text Stack */}
-          <div className="relative z-10 flex flex-row md:flex-col items-center justify-center -rotate-90 md:rotate-0 transition-transform whitespace-nowrap gap-3 md:gap-4">
+        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center z-10 my-auto h-full">
 
+          {/* Mobile: vertical writing mode, full height */}
+          <div className="flex md:hidden items-center justify-center w-full h-[100svh]">
+            <h1
+              className="font-black text-white uppercase tracking-tighter leading-[0.85] h-full flex items-center"
+              style={{
+                fontFamily: '"Arial Black", Impact, sans-serif',
+                writingMode: "vertical-rl",
+                transform: "rotate(180deg)",
+                fontSize: "clamp(3rem, 38vw, 13rem)",
+                textShadow:
+                  "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
+              }}
+            >
+              BLUE&nbsp;SAMURAI
+            </h1>
+          </div>
+
+          {/* Desktop: normal horizontal stacked layout */}
+          <div className="hidden md:flex flex-col items-center w-full gap-4">
             {/* BLUE */}
-            <div className="flex justify-center relative z-20">
+            <div className="w-full flex justify-center">
               <h1
-                className="text-[clamp(2.75rem,7.5vh,4.25rem)] md:text-[clamp(5rem,15vw,220px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+                className="text-[clamp(5rem,15vw,220px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
                 style={{
                   fontFamily: '"Arial Black", Impact, sans-serif',
                   textShadow:
@@ -76,11 +93,10 @@ export const Component = () => {
                 BLUE
               </h1>
             </div>
-
             {/* SAMURAI */}
-            <div className="flex justify-center relative z-10">
+            <div className="w-full flex justify-center">
               <h1
-                className="text-[clamp(2.75rem,7.5vh,4.25rem)] md:text-[clamp(5rem,14vw,200px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+                className="text-[clamp(5rem,14vw,200px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
                 style={{
                   fontFamily: '"Arial Black", Impact, sans-serif',
                   textShadow:
@@ -91,7 +107,6 @@ export const Component = () => {
               </h1>
             </div>
           </div>
-
 
         </div>
       </main>
