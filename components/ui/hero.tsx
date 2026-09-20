@@ -100,17 +100,25 @@ export const Component = () => {
 
             {/* BLUE */}
             <h1
-              className="hero-title-3d font-black leading-[0.88] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3.5rem,18.5vw,220px)]"
+              className="hero-title-3d font-black leading-[0.86] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4.2rem,23vw,220px)]"
               style={{
                 fontFamily: '"Arial Black", Impact, sans-serif',
               }}
             >
-              BLUE
+              <span className="relative inline-block">
+                <img
+                  src="/samurai.png"
+                  alt="Samurai Helmet"
+                  className="absolute -top-[45%] -left-[12%] w-[85%] h-[85%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
+                />
+                B
+              </span>
+              LUE
             </h1>
 
             {/* SAMURAI */}
             <h1
-              className="hero-title-3d font-black leading-[0.88] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(2.6rem,15vw,200px)]"
+              className="hero-title-3d font-black leading-[0.86] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3.3rem,18.5vw,200px)]"
               style={{
                 fontFamily: '"Arial Black", Impact, sans-serif',
               }}
