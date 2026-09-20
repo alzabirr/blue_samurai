@@ -95,16 +95,14 @@ export const Component = () => {
         </nav>
 
         {/* Hero Section */}
-        <main className="flex-1 flex flex-col items-center justify-center px-4 w-full max-w-[1440px] mx-auto my-auto">
+        <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-[1440px] mx-auto my-auto">
           <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10">
 
             {/* BLUE */}
             <h1
-              className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4.5rem,24vw,220px)]"
+              className="hero-title-3d font-black leading-[0.88] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3.5rem,18.5vw,220px)]"
               style={{
                 fontFamily: '"Arial Black", Impact, sans-serif',
-                textShadow:
-                  "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
               }}
             >
               BLUE
@@ -112,11 +110,9 @@ export const Component = () => {
 
             {/* SAMURAI */}
             <h1
-              className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3.75rem,20vw,200px)]"
+              className="hero-title-3d font-black leading-[0.88] md:leading-[0.85] tracking-tight md:tracking-tighter text-white m-0 p-0 uppercase text-[clamp(2.6rem,15vw,200px)]"
               style={{
                 fontFamily: '"Arial Black", Impact, sans-serif',
-                textShadow:
-                  "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
               }}
             >
               SAMURAI
