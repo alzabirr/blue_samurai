@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ScrollBurnText } from "@/components/ui/scroll-burn-text";
 
 // --- Custom SVG Components for Hand-Drawn Accents ---
 
@@ -36,7 +37,7 @@ const ArrowBlack2 = () => (
 
 export const Component = () => {
   return (
-    <div className="min-h-screen bg-[#0038FF] flex flex-col font-sans selection:bg-[#CCFF00] selection:text-black relative overflow-hidden w-full">
+    <div className="min-h-screen bg-[#0038FF] flex flex-col font-sans selection:bg-[#CCFF00] selection:text-black relative overflow-x-clip w-full">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
@@ -57,7 +58,7 @@ export const Component = () => {
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 min-h-[85svh] md:min-h-0 relative z-10 pt-16 pb-10 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
+      <main className="flex-1 min-h-[70svh] md:min-h-0 relative z-10 pt-16 pb-12 md:pt-16 md:pb-20 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
         <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10">
 
           {/* BLUE */}
@@ -86,6 +87,16 @@ export const Component = () => {
 
         </div>
       </main>
+
+      {/* Interactive Scroll Burn Section */}
+      <section className="relative z-10 w-full">
+        <ScrollBurnText
+          className="bg-[#0038FF] text-white"
+          textClassName="text-white"
+          runway="120vh"
+          hint="scroll down"
+        />
+      </section>
 
       {/* Bottom Features Section */}
       <section className="bg-white text-black rounded-t-[2.5rem] md:rounded-t-[3.5rem] px-6 py-12 md:px-10 md:py-16 relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.2)] mt-auto w-full">
