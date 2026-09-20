@@ -108,12 +108,17 @@ export const Component = () => {
               />
             </a>
 
-            {/* Contact Link */}
+            {/* Contact Icon Link */}
             <a
               href="#contact"
-              className="px-4 py-1.5 rounded-full border border-white/30 text-white text-xs font-semibold hover:bg-white/10 transition-colors"
+              className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+              title="Contact"
             >
-              Contact
+              <img
+                src="/contact.png"
+                alt="Contact"
+                className="w-full h-full object-contain select-none"
+              />
             </a>
           </div>
         </nav>
