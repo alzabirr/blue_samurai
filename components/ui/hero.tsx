@@ -81,10 +81,11 @@ export const Component = () => {
         {/* Navbar */}
         <nav className="flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
           {/* Navigation Links */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
+            {/* Home Icon Link */}
             <a
               href="#home"
-              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform mr-1"
+              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
               title="Home"
             >
               <img
@@ -93,15 +94,27 @@ export const Component = () => {
                 className="w-8 h-8 md:w-9 md:h-9 object-contain select-none"
               />
             </a>
-            {["Project", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="px-4 py-1.5 rounded-full border border-white/30 text-white text-xs font-semibold hover:bg-white/10 transition-colors"
-              >
-                {item}
-              </a>
-            ))}
+
+            {/* Projects Icon Link */}
+            <a
+              href="#project"
+              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+              title="Projects"
+            >
+              <img
+                src="/projects.png"
+                alt="Projects"
+                className="w-8 h-8 md:w-9 md:h-9 object-contain select-none"
+              />
+            </a>
+
+            {/* Contact Link */}
+            <a
+              href="#contact"
+              className="px-4 py-1.5 rounded-full border border-white/30 text-white text-xs font-semibold hover:bg-white/10 transition-colors"
+            >
+              Contact
+            </a>
           </div>
         </nav>
 
