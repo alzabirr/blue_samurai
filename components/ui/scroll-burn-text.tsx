@@ -9,12 +9,21 @@ const DEFAULT_SECTIONS = [
   "The best change is the one nobody can point at, because the friction it removed was never something anyone had a word for. Nobody writes in to thank you for the step they did not have to take. Ship it anyway, then go looking for the next one, and for the one waiting behind that.",
 ];
 
+export type ScrollBurnSection =
+  | string
+  | { text: string; className?: string };
+
+const getText = (s: ScrollBurnSection) =>
+  typeof s === "string" ? s : s.text;
+const getExtraClass = (s: ScrollBurnSection) =>
+  typeof s === "string" ? "" : s.className || "";
+
 export interface ScrollBurnTextProps {
   /**
    * The blocks, read in order. Each one comes up out of the dark, passes the
    * lens and burns off, uncovering the next one standing behind it.
    */
-  sections?: string[];
+  sections?: ScrollBurnSection[];
   /** Line shown on the opening frame, before the first block is close enough to read. Fades out on the first flick of scroll. */
   hint?: React.ReactNode;
   /** Scroll distance each block gets. Taller is slower. Default `"170vh"`. */
@@ -24,6 +33,9 @@ export interface ScrollBurnTextProps {
   className?: string;
   textClassName?: string;
   columnClassName?: string;
+  far?: number;
+  near?: number;
+  showCounter?: boolean;
 }
 
 /**
@@ -88,6 +100,9 @@ export function ScrollBurnText({
   className,
   textClassName,
   columnClassName,
+  far = 1.6,
+  near = 0.85,
+  showCounter = false,
 }: ScrollBurnTextProps) {
   const prefersReducedMotion = useReducedMotion();
   const runwayRef = React.useRef<HTMLDivElement>(null);
@@ -186,8 +201,8 @@ export function ScrollBurnText({
         // it is close — the same curve anything coming at you actually follows.
         // Doubling at a fixed rate instead would read as a flat zoom.
         const depth = Math.max(
-          FAR - ((FAR - NEAR) * (q + LEAD)) / (1 + LEAD),
-          NEAR,
+          far - ((far - near) * (q + LEAD)) / (1 + LEAD),
+          near,
         );
         wrap.style.transform = `scale(${1 / depth})`;
 
@@ -210,7 +225,7 @@ export function ScrollBurnText({
       }
       if (active !== front) {
         active = front;
-        if (counterRef.current) {
+        if (showCounter && counterRef.current) {
           counterRef.current.textContent = `${String(front + 1).padStart(2, "0")} / ${String(count).padStart(2, "0")}`;
         }
       }
@@ -260,8 +275,8 @@ export function ScrollBurnText({
       <div className={cn("w-full bg-background px-6 py-24", className)}>
         <div className="mx-auto grid max-w-2xl gap-10">
           {sections.map((body, i) => (
-            <p key={i} className={cn(column, "w-full text-left")}>
-              {body}
+            <p key={i} className={cn(column, getExtraClass(body), "w-full text-left")}>
+              {getText(body)}
             </p>
           ))}
         </div>
@@ -277,10 +292,12 @@ export function ScrollBurnText({
         className="w-full"
       >
         <div className="sticky top-0 h-screen w-full overflow-hidden bg-inherit">
-          <div
-            ref={counterRef}
-            className="pointer-events-none absolute bottom-5 left-6 z-10 text-[0.65rem] font-medium uppercase tracking-[0.22em] tabular-nums opacity-70"
-          />
+          {showCounter ? (
+            <div
+              ref={counterRef}
+              className="pointer-events-none absolute bottom-5 left-6 z-10 text-[0.65rem] font-medium uppercase tracking-[0.22em] tabular-nums opacity-70"
+            />
+          ) : null}
 
           {hint ? (
             <div
@@ -308,7 +325,7 @@ export function ScrollBurnText({
                 ref={(node) => {
                   blockRefs.current[i] = node;
                 }}
-                className={column}
+                className={cn(column, getExtraClass(body))}
                 style={
                   {
                     "--b": 0,
@@ -321,7 +338,7 @@ export function ScrollBurnText({
                   } as React.CSSProperties
                 }
               >
-                {Array.from(body).map((ch, k) =>
+                {Array.from(getText(body)).map((ch, k) =>
                   ch === " " ? (
                     " "
                   ) : (
@@ -349,7 +366,7 @@ export function ScrollBurnText({
 
           {/* The visual layer is split to the glyph, which assistive tech reads
               as loose letters, so the copy is carried once more intact. */}
-          <p className="sr-only">{sections.join(" ")}</p>
+          <p className="sr-only">{sections.map(getText).join(" ")}</p>
         </div>
       </div>
     </div>

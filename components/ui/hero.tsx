@@ -36,14 +36,38 @@ const ArrowBlack2 = () => (
 
 
 const PROJECT_SECTIONS = [
-  "Meet our products",
-  "Snappy",
-  "Medi reminder",
-  "Krabby",
-  "Nappy",
-  "Upgrade",
-  "Noti",
-  "Owly",
+  {
+    text: "Meet our products",
+    className: "text-[clamp(2.5rem,8.5vw,8rem)]",
+  },
+  {
+    text: "Snappy",
+    className: "text-[clamp(4.5rem,18vw,16rem)]",
+  },
+  {
+    text: "Medi reminder",
+    className: "text-[clamp(3.5rem,12vw,11rem)]",
+  },
+  {
+    text: "Krabby",
+    className: "text-[clamp(4.5rem,18vw,16rem)]",
+  },
+  {
+    text: "Nappy",
+    className: "text-[clamp(4.5rem,18vw,16rem)]",
+  },
+  {
+    text: "Upgrade",
+    className: "text-[clamp(4.5rem,18vw,16rem)]",
+  },
+  {
+    text: "Noti",
+    className: "text-[clamp(5rem,22vw,18rem)]",
+  },
+  {
+    text: "Owly",
+    className: "text-[clamp(5rem,22vw,18rem)]",
+  },
 ];
 
 export const Component = () => {
@@ -118,7 +142,9 @@ export const Component = () => {
           sections={PROJECT_SECTIONS}
           className="bg-[#0038FF] text-white"
           textClassName="text-white"
-          columnClassName="w-auto max-w-[95vw] text-center text-[clamp(2.2rem,7.5vw,5.5rem)] font-black uppercase tracking-tighter leading-none whitespace-nowrap"
+          columnClassName="w-auto max-w-[98vw] text-center font-black uppercase tracking-tighter leading-[0.88] whitespace-nowrap"
+          far={1.6}
+          near={0.85}
           runway="65vh"
           hint={null}
         />
