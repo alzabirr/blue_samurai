@@ -116,15 +116,7 @@ export const Component = () => {
                 fontFamily: '"Arial Black", Impact, sans-serif',
               }}
             >
-              <span className="relative inline-block">
-                <img
-                  src="/samurai.png"
-                  alt="Samurai Helmet"
-                  className="block md:hidden absolute -top-[56%] -left-[38%] w-[115%] h-[115%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
-                />
-                B
-              </span>
-              LUE
+              BLUE
             </h1>
 
             {/* SAMURAI */}
