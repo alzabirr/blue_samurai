@@ -109,7 +109,7 @@ export const Component = () => {
                 <img
                   src="/samurai.png"
                   alt="Samurai Helmet"
-                  className="absolute -top-[45%] -left-[12%] w-[85%] h-[85%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
+                  className="block md:hidden absolute -top-[60%] -left-[20%] w-[115%] h-[115%] object-contain -rotate-[15deg] pointer-events-none drop-shadow-md z-30 select-none"
                 />
                 B
               </span>
