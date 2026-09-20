@@ -84,13 +84,13 @@ export const Component = () => {
           <div className="flex items-center space-x-2">
             <a
               href="#home"
-              className="flex items-center justify-center w-8 h-8 rounded-full border border-white/30 text-white hover:bg-white/10 transition-all hover:scale-105 active:scale-95 p-0.5 overflow-hidden"
+              className="flex items-center justify-center hover:scale-110 active:scale-95 transition-transform mr-1"
               title="Home"
             >
               <img
                 src="/samuraiicon.png"
                 alt="Home"
-                className="w-full h-full object-contain rounded-full"
+                className="w-8 h-8 md:w-9 md:h-9 object-contain select-none"
               />
             </a>
             {["Project", "Contact"].map((item) => (
