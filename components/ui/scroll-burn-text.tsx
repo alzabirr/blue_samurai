@@ -23,6 +23,7 @@ export interface ScrollBurnTextProps {
   container?: React.RefObject<HTMLElement | null>;
   className?: string;
   textClassName?: string;
+  columnClassName?: string;
 }
 
 /**
@@ -86,6 +87,7 @@ export function ScrollBurnText({
   container,
   className,
   textClassName,
+  columnClassName,
 }: ScrollBurnTextProps) {
   const prefersReducedMotion = useReducedMotion();
   const runwayRef = React.useRef<HTMLDivElement>(null);
@@ -248,7 +250,8 @@ export function ScrollBurnText({
   // reading distance, and stepping the size while the column scales smoothly
   // leaves it a third of the height it should be between two breakpoints.
   const column = cn(
-    "relative w-[min(84vw,36rem)] text-center text-[clamp(1.25rem,6.5vw,2.75rem)] font-bold leading-[1.05] tracking-tight",
+    "relative text-center tracking-tight",
+    columnClassName || "w-[min(84vw,36rem)] text-[clamp(1.25rem,6.5vw,2.75rem)] font-bold leading-[1.05]",
     textClassName || "text-foreground",
   );
 

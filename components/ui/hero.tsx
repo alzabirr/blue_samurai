@@ -35,6 +35,15 @@ const ArrowBlack2 = () => (
 );
 
 
+const PROJECT_SECTIONS = [
+  "Medi reminder",
+  "Krabby",
+  "Nappy",
+  "Upgrade",
+  "Noti",
+  "Owly",
+];
+
 export const Component = () => {
   return (
     <div className="min-h-screen bg-[#0038FF] flex flex-col font-sans selection:bg-[#CCFF00] selection:text-black relative overflow-x-clip w-full">
@@ -101,13 +110,15 @@ export const Component = () => {
         </div>
       </header>
 
-      {/* Interactive Scroll Burn Section */}
+      {/* Interactive Scroll Burn Section - Snappy Big Font Showcase */}
       <section className="relative z-10 w-full">
         <ScrollBurnText
+          sections={PROJECT_SECTIONS}
           className="bg-[#0038FF] text-white"
           textClassName="text-white"
-          runway="120vh"
-          hint="scroll down"
+          columnClassName="w-full max-w-5xl text-center text-[clamp(3.5rem,14vw,7.5rem)] font-black uppercase tracking-tighter leading-[0.92]"
+          runway="70vh"
+          hint={null}
         />
       </section>
 
