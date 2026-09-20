@@ -41,52 +41,65 @@ export const Component = () => {
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
-      {/* Navbar */}
-      <nav className="relative z-20 flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
-        {/* Navigation Links */}
-        <div className="flex items-center space-x-2">
-          {["Home", "Project", "Contact"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="px-4 py-1.5 rounded-full border border-white/30 text-white text-xs font-semibold hover:bg-white/10 transition-colors"
+      {/* Hero Screen (Fold 1) - Guaranteed 100vh on any screen height */}
+      <header className="relative z-20 min-h-screen flex flex-col justify-between w-full">
+        {/* Navbar */}
+        <nav className="flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
+          {/* Navigation Links */}
+          <div className="flex items-center space-x-2">
+            {["Home", "Project", "Contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="px-4 py-1.5 rounded-full border border-white/30 text-white text-xs font-semibold hover:bg-white/10 transition-colors"
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        {/* Hero Section */}
+        <main className="flex-1 flex flex-col items-center justify-center px-4 w-full max-w-[1440px] mx-auto my-auto">
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10">
+
+            {/* BLUE */}
+            <h1
+              className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4.5rem,24vw,220px)]"
+              style={{
+                fontFamily: '"Arial Black", Impact, sans-serif',
+                textShadow:
+                  "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
+              }}
             >
-              {item}
-            </a>
-          ))}
+              BLUE
+            </h1>
+
+            {/* SAMURAI */}
+            <h1
+              className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3.75rem,20vw,200px)]"
+              style={{
+                fontFamily: '"Arial Black", Impact, sans-serif',
+                textShadow:
+                  "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
+              }}
+            >
+              SAMURAI
+            </h1>
+
+          </div>
+        </main>
+
+        {/* Scroll Indicator at bottom of Hero */}
+        <div className="pb-8 md:pb-12 flex flex-col items-center justify-center text-center pointer-events-none">
+          <span className="text-[10px] md:text-xs font-semibold uppercase tracking-[0.25em] text-white/60">
+            Scroll to explore
+          </span>
+          <div className="w-4 h-7 border-2 border-white/40 rounded-full mt-2 flex justify-center pt-1">
+            <div className="w-1 h-1.5 bg-white/70 rounded-full animate-bounce" />
+          </div>
         </div>
-      </nav>
-
-      {/* Hero Section */}
-      <main className="flex-1 min-h-[70svh] md:min-h-0 relative z-10 pt-16 pb-12 md:pt-16 md:pb-20 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
-        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10">
-
-          {/* BLUE */}
-          <h1
-            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(5rem,27vw,220px)]"
-            style={{
-              fontFamily: '"Arial Black", Impact, sans-serif',
-              textShadow:
-                "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
-            }}
-          >
-            BLUE
-          </h1>
-
-          {/* SAMURAI */}
-          <h1
-            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4rem,22vw,200px)]"
-            style={{
-              fontFamily: '"Arial Black", Impact, sans-serif',
-              textShadow:
-                "1px 1px 0 #001A99, 2px 2px 0 #001A99, 3px 3px 0 #001A99, 4px 4px 0 #001A99, 5px 5px 0 #001A99, 6px 6px 0 #001A99, 7px 7px 0 #001A99, 8px 8px 0 #001A99, 9px 9px 0 #001A99, 10px 10px 0 #001A99, 11px 11px 0 #001A99, 12px 12px 0 #001A99, 13px 13px 0 #001A99, 14px 14px 0 #001A99",
-            }}
-          >
-            SAMURAI
-          </h1>
-
-        </div>
-      </main>
+      </header>
 
       {/* Interactive Scroll Burn Section */}
       <section className="relative z-10 w-full">
