@@ -41,10 +41,9 @@ export const Component = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
       {/* Navbar */}
-      <nav className="relative z-20 flex items-center justify-between px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
-
-        {/* Desktop Links (Centered) */}
-        <div className="hidden md:flex items-center space-x-2 absolute left-1/2 -translate-x-1/2">
+      <nav className="relative z-20 flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
+        {/* Navigation Links */}
+        <div className="flex items-center space-x-2">
           {["Home", "Project", "Contact"].map((item) => (
             <a
               key={item}
@@ -55,17 +54,12 @@ export const Component = () => {
             </a>
           ))}
         </div>
-
-        {/* Connect Button */}
-        <button className="ml-auto px-6 py-2 rounded-full border border-white text-white text-xs md:text-sm font-semibold hover:bg-white hover:text-[#0038FF] transition-colors">
-          Connect wallet
-        </button>
       </nav>
 
       {/* Hero Section */}
-      <main className="flex-1 relative z-10 pt-8 pb-32 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
+      <main className="flex-1 min-h-[85svh] md:min-h-0 relative z-10 pt-16 pb-32 md:pt-12 md:pb-48 px-4 flex flex-col items-center justify-center w-full max-w-[1440px] mx-auto">
         {/* Massive Typography & Elements Container */}
-        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 mt-4 mb-16">
+        <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 my-auto">
           {/* Text Stack */}
           <div className="w-full flex flex-col items-center relative z-10 space-y-2 md:space-y-4">
 
