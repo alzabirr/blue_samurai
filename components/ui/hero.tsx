@@ -61,12 +61,12 @@ export const Component = () => {
         {/* Massive Typography & Elements Container */}
         <div className="relative w-full max-w-5xl mx-auto flex flex-col items-center justify-center text-center z-10 my-auto">
           {/* Text Stack */}
-          <div className="w-full flex flex-col items-center relative z-10 space-y-2 md:space-y-4">
+          <div className="relative z-10 flex flex-row md:flex-col items-center justify-center -rotate-90 md:rotate-0 transition-transform whitespace-nowrap gap-3 md:gap-4">
 
             {/* BLUE */}
-            <div className="w-full flex justify-center relative z-20">
+            <div className="flex justify-center relative z-20">
               <h1
-                className="text-[clamp(5rem,15vw,220px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+                className="text-[clamp(2.75rem,7.5vh,4.25rem)] md:text-[clamp(5rem,15vw,220px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
                 style={{
                   fontFamily: '"Arial Black", Impact, sans-serif',
                   textShadow:
@@ -78,9 +78,9 @@ export const Component = () => {
             </div>
 
             {/* SAMURAI */}
-            <div className="w-full flex justify-center relative z-10">
+            <div className="flex justify-center relative z-10">
               <h1
-                className="text-[clamp(5rem,14vw,200px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
+                className="text-[clamp(2.75rem,7.5vh,4.25rem)] md:text-[clamp(5rem,14vw,200px)] font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase"
                 style={{
                   fontFamily: '"Arial Black", Impact, sans-serif',
                   textShadow:
