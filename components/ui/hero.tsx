@@ -62,7 +62,7 @@ export const Component = () => {
 
           {/* BLUE */}
           <h1
-            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4rem,22vw,220px)]"
+            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(5rem,27vw,220px)]"
             style={{
               fontFamily: '"Arial Black", Impact, sans-serif',
               textShadow:
@@ -74,7 +74,7 @@ export const Component = () => {
 
           {/* SAMURAI */}
           <h1
-            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(3rem,18vw,200px)]"
+            className="font-black leading-[0.85] tracking-tighter text-white m-0 p-0 uppercase text-[clamp(4rem,22vw,200px)]"
             style={{
               fontFamily: '"Arial Black", Impact, sans-serif',
               textShadow:
