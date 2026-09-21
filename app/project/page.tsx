@@ -13,10 +13,6 @@ export default function ProjectPage() {
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
-      {/* Ambient background glow spheres */}
-      <div className="absolute top-20 left-1/4 w-[600px] h-[600px] bg-[#00F0FF]/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[40rem] right-10 w-[500px] h-[500px] bg-[#CCFF00]/10 rounded-full blur-[140px] pointer-events-none" />
-
       {/* Top Navbar */}
       <header className="relative z-30 px-6 py-6 md:px-12 md:py-8 max-w-[1440px] mx-auto w-full flex items-center justify-between">
         {/* Center Icons Navigation */}
