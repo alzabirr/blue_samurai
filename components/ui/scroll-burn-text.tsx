@@ -115,7 +115,9 @@ export function ScrollBurnText({
   // Read inside the scroll handler so retyping the copy does not tear the
   // listener down and rebuild it.
   const total = React.useRef(count);
-  total.current = count;
+  React.useEffect(() => {
+    total.current = count;
+  }, [count]);
 
   React.useEffect(() => {
     if (prefersReducedMotion) return;

@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ScrollBurnText } from "@/components/ui/scroll-burn-text";
 
 // --- Custom SVG Components for Hand-Drawn Accents ---
-
 
 const ArrowBlack1 = () => (
   <svg
@@ -34,39 +34,26 @@ const ArrowBlack2 = () => (
   </svg>
 );
 
-
 const PROJECT_SECTIONS = [
   {
     text: "Meet our products",
     className: "text-[clamp(2.5rem,8.5vw,8rem)]",
   },
   {
-    text: "Snappy",
+    text: "Snapi",
     className: "text-[clamp(4.5rem,18vw,16rem)]",
   },
   {
-    text: "Medi reminder",
+    text: "Quick Nap",
+    className: "text-[clamp(4rem,15vw,14rem)]",
+  },
+  {
+    text: "MediRemind",
     className: "text-[clamp(3.5rem,12vw,11rem)]",
-  },
-  {
-    text: "Krabby",
-    className: "text-[clamp(4.5rem,18vw,16rem)]",
-  },
-  {
-    text: "Nappy",
-    className: "text-[clamp(4.5rem,18vw,16rem)]",
   },
   {
     text: "Upgrade",
     className: "text-[clamp(4.5rem,18vw,16rem)]",
-  },
-  {
-    text: "Noti",
-    className: "text-[clamp(5rem,22vw,18rem)]",
-  },
-  {
-    text: "Owly",
-    className: "text-[clamp(5rem,22vw,18rem)]",
   },
 ];
 
@@ -77,15 +64,15 @@ export const Component = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none z-0"></div>
 
       {/* Hero Screen (Fold 1) - Guaranteed 100vh on any screen height */}
-      <header className="relative z-20 min-h-screen flex flex-col justify-between w-full">
+      <header id="home" className="relative z-20 min-h-screen flex flex-col justify-between w-full">
         {/* Navbar */}
-        <nav className="flex items-center justify-center px-6 py-6 md:px-10 md:py-8 max-w-[1440px] mx-auto w-full">
-          {/* Navigation Links */}
-          <div className="flex items-center gap-5 md:gap-6">
-            {/* Home Icon Link */}
-            <a
-              href="#home"
-              className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+        <div className="px-6 py-6 md:px-12 md:py-8 max-w-[1440px] mx-auto w-full flex items-center justify-between relative">
+          {/* Center Icons Navigation */}
+          <nav className="absolute left-1/2 -translate-x-1/2 flex items-center gap-5 md:gap-6 bg-black/20 backdrop-blur-md px-5 py-2.5 rounded-full border border-white/15 z-10">
+            {/* Home Link (Active) */}
+            <Link
+              href="/"
+              className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center scale-110 relative"
               title="Home"
             >
               <img
@@ -93,22 +80,23 @@ export const Component = () => {
                 alt="Home"
                 className="w-full h-full object-contain select-none"
               />
-            </a>
+              <span className="absolute -bottom-1.5 w-1.5 h-1.5 rounded-full bg-[#CCFF00]" />
+            </Link>
 
-            {/* Projects Icon Link */}
-            <a
-              href="#project"
+            {/* Projects Link */}
+            <Link
+              href="/project"
               className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
               title="Projects"
             >
               <img
                 src="/projects.png"
                 alt="Projects"
-                className="w-full h-full object-contain select-none"
+                className="w-full h-full object-contain select-none opacity-70 hover:opacity-100 transition-opacity"
               />
-            </a>
+            </Link>
 
-            {/* Contact Icon Link */}
+            {/* Contact Link */}
             <a
               href="#contact"
               className="w-8 h-8 md:w-9 md:h-9 flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
@@ -117,11 +105,32 @@ export const Component = () => {
               <img
                 src="/contact.png"
                 alt="Contact"
-                className="w-full h-full object-contain select-none"
+                className="w-full h-full object-contain select-none opacity-70 hover:opacity-100 transition-opacity"
               />
             </a>
-          </div>
-        </nav>
+          </nav>
+
+          {/* Action Button: Products */}
+          <Link
+            href="/project"
+            className="ml-auto inline-flex items-center gap-2 bg-[#CCFF00] hover:bg-white text-black px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider transition-all shadow-md hover:scale-105 active:scale-95 z-20"
+          >
+            <span>Products</span>
+            <svg
+              className="w-3.5 h-3.5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+        </div>
 
         {/* Hero Section */}
         <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-[1440px] mx-auto my-auto">
@@ -162,7 +171,7 @@ export const Component = () => {
       </header>
 
       {/* Interactive Scroll Burn Section - Snappy Big Font Showcase */}
-      <section className="relative z-10 w-full">
+      <section className="relative z-10 w-full flex flex-col items-center">
         <ScrollBurnText
           sections={PROJECT_SECTIONS}
           className="bg-[#0038FF] text-white"
@@ -173,6 +182,29 @@ export const Component = () => {
           runway="35vh"
           hint={null}
         />
+
+        {/* Call-to-action button to view product page */}
+        <div className="py-12 flex justify-center z-20">
+          <Link
+            href="/project"
+            className="inline-flex items-center gap-3 bg-[#CCFF00] hover:bg-white text-black font-black px-8 py-4 rounded-full text-base md:text-lg shadow-2xl hover:scale-105 active:scale-95 transition-all uppercase tracking-wider"
+          >
+            <span>View All Products</span>
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={3}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </Link>
+        </div>
       </section>
 
       {/* Bottom Features Section */}
