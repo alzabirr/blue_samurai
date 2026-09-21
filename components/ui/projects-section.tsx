@@ -15,6 +15,7 @@ export interface ProjectItem {
   badgeBg: string;
   badgeText: string;
   highlights: string[];
+  pageUrl?: string;
 }
 
 export const PROJECTS_DATA: ProjectItem[] = [
@@ -30,6 +31,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     gradient: "from-blue-600 to-indigo-800",
     badgeBg: "bg-[#CCFF00]",
     badgeText: "text-black",
+    pageUrl: "/project/snapi",
     highlights: [
       "Offline On-Device Text Extraction (OCR)",
       "Automated capture detection & organized vaults",
@@ -98,7 +100,6 @@ export const PROJECTS_DATA: ProjectItem[] = [
 
 export function ProjectsSection({ id = "project" }: { id?: string }) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
 
   const categories = ["All", "AI & Productivity", "Health & Lifestyle", "Health & Medical", "Developer Tooling"];
 
@@ -151,8 +152,7 @@ export function ProjectsSection({ id = "project" }: { id?: string }) {
           {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              onClick={() => setSelectedProject(project)}
-              className="group relative bg-white rounded-[2rem] md:rounded-[2.5rem] p-7 md:p-9 border border-neutral-200/80 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-pointer"
+              className="group relative bg-white rounded-[2rem] md:rounded-[2.5rem] p-7 md:p-9 border border-neutral-200/80 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
             >
               {/* Top Bar with Category Badge */}
               <div>
@@ -209,134 +209,37 @@ export function ProjectsSection({ id = "project" }: { id?: string }) {
               {/* Bottom Action Footer */}
               <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-neutral-400">
-                  Click to inspect details
+                  {project.pageUrl ? "View full product page" : "Coming soon"}
                 </span>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedProject(project);
-                  }}
-                  className="inline-flex items-center gap-2 bg-neutral-900 group-hover:bg-[#0038FF] text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-bold tracking-wide transition-colors duration-200 cursor-pointer shadow-sm group-hover:shadow-md"
-                >
-                  View Details
-                  <svg
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {project.pageUrl ? (
+                  <Link
+                    href={project.pageUrl}
+                    className="inline-flex items-center gap-2 bg-neutral-900 group-hover:bg-[#0038FF] text-white px-5 py-2.5 rounded-full text-xs md:text-sm font-bold tracking-wide transition-colors duration-200 cursor-pointer shadow-sm group-hover:shadow-md"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2.5}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </button>
+                    View Details
+                    <svg
+                      className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </Link>
+                ) : (
+                  <span className="inline-flex items-center gap-2 bg-neutral-200 text-neutral-500 px-5 py-2.5 rounded-full text-xs md:text-sm font-bold tracking-wide">
+                    Coming Soon
+                  </span>
+                )}
               </div>
             </div>
           ))}
         </div>
-
-        {/* Modal for Project Details */}
-        {selectedProject && (
-          <div
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4"
-            onClick={() => setSelectedProject(null)}
-          >
-            <div
-              className="bg-white rounded-[2rem] max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh] border border-neutral-200"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 w-9 h-9 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-700 font-bold transition-colors cursor-pointer"
-                title="Close"
-              >
-                ✕
-              </button>
-
-              <div className="flex items-center gap-5 mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-neutral-50 border border-neutral-200 p-2 flex items-center justify-center flex-shrink-0">
-                  <img
-                    src={selectedProject.image}
-                    alt={selectedProject.name}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-                <div>
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider ${selectedProject.badgeBg} ${selectedProject.badgeText} mb-1.5`}
-                  >
-                    {selectedProject.category}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-black text-neutral-900">
-                    {selectedProject.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm font-semibold text-neutral-500">
-                    {selectedProject.tagline}
-                  </p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-1">
-                    About the product
-                  </h4>
-                  <p className="text-neutral-700 leading-relaxed text-sm sm:text-base">
-                    {selectedProject.description}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
-                    Key Highlights
-                  </h4>
-                  <ul className="space-y-2">
-                    {selectedProject.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-sm text-neutral-800">
-                        <span className="w-5 h-5 rounded-full bg-[#CCFF00] text-black font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                          ✓
-                        </span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">
-                    Technology & Features
-                  </h4>
-                  <div className="flex flex-wrap gap-2">
-                    {selectedProject.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-bold px-3 py-1.5 rounded-xl bg-neutral-100 text-neutral-800 border border-neutral-200"
-                      >
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-neutral-100 flex items-center justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setSelectedProject(null)}
-                  className="px-6 py-2.5 rounded-full bg-[#0038FF] text-white font-bold text-sm hover:bg-[#002499] transition-colors cursor-pointer"
-                >
-                  Done
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Bottom Banner Call-to-action */}
         <div className="mt-16 md:mt-20 bg-gradient-to-r from-[#0038FF] to-[#002499] rounded-[2.5rem] p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden">
